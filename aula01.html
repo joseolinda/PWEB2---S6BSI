@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de Programação para Web II - Fundamentos de JavaScript</title>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/dracula.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+
+    <div id="presentation">
+        <div class="slide" id="slide1">
+            <span class="slide-number">1/30</span>
+            <h1>Programação para Web II</h1>
+            <h2>Aula 01: Fundamentos de JavaScript</h2>
+            <p style="text-align:center;">Baseado em Eloquent JavaScript, Capítulos 1 & 2</p>
+            <div class="img-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+                    alt="Logo do JavaScript" style="max-width: 200px;">
+                <img src="./img/capa-eloq.png" alt="capa-eloq" style="max-width: 150px;"><br>
+                <small>Fonte: <a href="https://eloquentjavascript.net/" target="_blank">Eloquent JavaScript</a></small>
+            </div>
+            <h3>Prof. Zé Olinda</h3>
+        </div>
+
+        <div class="slide" id="slide2">
+            <span class="slide-number">2/30</span>
+            <h2>Conteúdo</h2>
+            <ul>
+                <li><strong>Fundamentos de JavaScript</strong>
+                    <ul>
+                        <li>Introdução, História, Propósito e Aplicações</li>
+                        <li>Estrutura de Código e "use strict"</li>
+                        <li>Variáveis (var, let, const), Tipos e Conversões</li>
+                        <li>Hoisting</li>
+                    </ul>
+                </li>
+                <li><strong>Interações com o Navegador</strong>
+                    <ul>
+                        <li><code class="javascript">alert()</code></li>
+                        <li><code class="javascript">prompt()</code></li>
+                        <li><code class="javascript">confirm()</code></li>
+                        <li><code class="javascript">console.log()</code></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide3">
+            <span class="slide-number">3/30</span>
+            <h2>O que é JavaScript?</h2>
+            <p>JavaScript (JS) é uma linguagem de programação de <strong>alto nível</strong>,
+                <strong>interpretada</strong> e <strong>multi-paradigma</strong> (suporta programação procedural,
+                orientada a objetos e funcional). Em JS (quase) tudo é um objeto, incluindo funções.</p>
+            <p>É uma das três principais tecnologias da World Wide Web, junto com HTML e CSS.</p>
+            <ul>
+                <li><strong>HTML:</strong> Define a estrutura e o conteúdo das páginas web.</li>
+                <li><strong>CSS:</strong> Define o estilo e a apresentação visual.</li>
+                <li><strong>JavaScript:</strong> Adiciona interatividade e comportamento dinâmico.</li>
+            </ul>
+            <div class="note">
+                <p><strong>Curiosidade:</strong> JavaScript não tem relação direta com a linguagem Java, apesar da
+                    similaridade no nome. A escolha do nome foi uma decisão de marketing na época.</p>
+            </div>
+        </div>
+
+        <div class="slide" id="slide4">
+            <span class="slide-number">4/30</span>
+            <h2>Uma Breve História</h2>
+            <ul>
+                <li>Criado em <strong>1995</strong> por <strong>Brendan Eich</strong> na Netscape Communications.</li>
+                <li>Desenvolvido em apenas 10 dias!</li>
+                <li>Originalmente chamado de <strong>Mocha</strong>, depois <strong>LiveScript</strong>, e finalmente
+                    JavaScript.</li>
+                <li>Padronizado em 1997 pela <strong>ECMA International</strong> como <strong>ECMAScript</strong>, para
+                    garantir a interoperabilidade entre navegadores.</li>
+            </ul>
+            <div class="img-container">
+                <img src="./img/brendan.png"
+                    alt="Brendan Eich, criador do JavaScript" style="max-width: 450px;">
+                <figcaption>Brendan Eich, o criador do JavaScript.</figcaption>
+            </div>
+        </div>
+
+        <div class="slide" id="slide5">
+            <span class="slide-number">5/30</span>
+            <h2>Propósito e Aplicações</h2>
+            <p>Inicialmente, o propósito era adicionar interatividade a páginas web (validação de formulários,
+                animações, etc.). Hoje, suas aplicações são vastas:</p>
+            <ul>
+                <li><strong>Front-end Web:</strong> Manipulação do DOM, interatividade com o usuário (Frameworks como
+                    React, Angular, Vue.js).</li>
+                <li><strong>Back-end:</strong> Servidores web com <strong>Node.js</strong> e frameworks como Express.js e Next.js.</li>
+                <li><strong>Mobile Apps:</strong> Usando frameworks como React Native e Ionic.</li>
+                <li><strong>Desktop Apps:</strong> Com Electron (ex: VS Code, Slack).</li>
+                <li><strong>Jogos:</strong> Bibliotecas como Phaser e Three.js.</li>
+                <li><strong>Internet das Coisas (IoT).</strong></li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide6">
+            <span class="slide-number">6/30</span>
+            <h2>Estrutura do Código JavaScript</h2>
+            <p>Um programa em JavaScript é uma sequência de <strong>declarações</strong> (statements). Declarações são
+                como frases em uma linguagem e são geralmente terminadas com ponto e vírgula (<code class="javascript">;</code>).</p>
+            <p>O ponto e vírgula é opcional em muitos casos devido à "Inserção Automática de Ponto e Vírgula" (ASI), mas
+                é uma <strong>boa prática</strong> sempre utilizá-lo para evitar ambiguidades.</p>
+            <pre><code class="javascript">let numero = 10;
+
+console.log(numero);
+
+if (numero > 5) {
+    console.log("O número é maior que 5.");
+}</code></pre>
+        </div>
+
+
+        <div class="slide" id="slide7">
+            <span class="slide-number">7/30</span>
+            <h2>Modo Estrito: "use strict"</h2>
+            <p>O "modo estrito" é uma forma de optar por uma variante restrita do JavaScript. Ele elimina alguns "erros
+                silenciosos" do JavaScript, fazendo com que eles lancem exceções.</p>
+            <p>Para ativá-lo, adicione <code class="javascript">"use strict";</code> no início do seu script ou de uma função.</p>
+            <pre><code class="javascript">"use strict";
+
+variavelNaoDeclarada = 10; // ReferenceError
+
+let x = 3.14;
+delete x; // SyntaxError
+</code></pre>
+            <div class="note">
+                <strong>Recomendação:</strong> Sempre use o modo estrito. Ele ajuda a escrever um código mais seguro e
+                robusto.
+            </div>
+        </div>
+
+
+        <div class="slide" id="slide8">
+            <span class="slide-number">8/30</span>
+            <h2>Variáveis</h2>
+            <p>Variáveis são "contêineres" nomeados para armazenar valores. Em JavaScript, podemos declarar variáveis
+                usando <code class="javascript">var</code>, <code class="javascript">let</code>, e <code class="javascript">const</code>.</p>
+            <pre><code class="javascript">let mensagem = "Olá, mundo!";
+let idade = 25;
+const PI = 3.14159;
+</code></pre>
+            <p>Os nomes de variáveis (identificadores) podem conter letras, dígitos, underscores (<code class="javascript">  _  </code>) e
+                cifrões (<code class="javascript">  $  </code>), mas não podem começar com um dígito.</p>
+        </div>
+
+
+        <div class="slide" id="slide9">
+            <span class="slide-number">9/30</span>
+            <h2><code class="javascript">var</code>, <code class="javascript">let</code> e <code class="javascript">const</code></h2>
+            <p>Introduzidos no ES6 (ECMAScript 2015), <code class="javascript">let</code> e <code class="javascript">const</code> oferecem um escopo de bloco
+                e são as formas <strong>RECOMENDADA</strong> de declarar variáveis hoje.</p>
+            <ul>
+                <li><code class="javascript"><strong>var</strong></code>:
+                    <ul>
+                        <li>Escopo de <strong>função</strong>.</li>
+                        <li>Pode ser redeclarada e reatribuída.</li>
+                        <li>Sofre <em>hoisting</em> (içamento) completo.</li>
+                    </ul>
+                </li>
+                <li><code class="javascript"><strong>let</strong></code>:
+                    <ul>
+                        <li>Escopo de <strong>bloco</strong> <code class="javascript">{...}</code>.</li>
+                        <li>Pode ser reatribuída, mas não redeclarada no mesmo escopo.</li>
+                        <li>Sofre <em>hoisting</em>, mas fica na "Temporal Dead Zone" (TDZ) até a declaração.</li>
+                    </ul>
+                </li>
+                <li><code class="javascript"><strong>const</strong></code>:
+                    <ul>
+                        <li>Escopo de <strong>bloco</strong>.</li>
+                        <li><strong>Não pode</strong> ser reatribuída. Deve ser inicializada na declaração.</li>
+                        <li>A "constância" se refere à referência; se for um objeto, suas propriedades podem ser
+                            alteradas.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="note">
+                <p><strong>Dica:</strong> Use <code class="javascript">const</code> por padrão. Use <code class="javascript">let</code> apenas quando souber que a variável
+                    precisará ser reatribuída. Evite <code class="javascript">var</code> para evitar confusões com escopo.</p>
+                <p><strong>Sugestão de leitura:</strong> <a href="https://www.freecodecamp.org/news/javascript-temporal-dead-zone-and-hoisting-explained/" target="_blank">JavaScript: Temporal Dead Zone e Hoisting Explicados</a></p>
+            </div>
+        </div>
+
+        <div class="slide" id="slide10">
+            <span class="slide-number">10/30</span>
+            <h2>Escopo de Bloco vs. Escopo de Função</h2>
+            <pre><code class="javascript">function testeEscopo() {
+    var x = 10;
+    if (true) {
+        var x = 20; // Mesma variável x
+        let y = 30;
+        console.log("Dentro do if (var x):", x); // 20
+        console.log("Dentro do if (let y):", y); // 30
+    }
+    console.log("Fora do if (var x):", x);   // 20
+    console.log("Fora do if (let y):", y); // ReferenceError: y is not defined
+}
+
+testeEscopo();
+</code></pre>
+            <div class="note">
+                <p><code class="javascript">let</code> e <code class="javascript">const</code> respeitam o bloco <code class="javascript">if</code>, enquanto <code class="javascript">var</code>
+                    "vaza" para o escopo da função inteira.</p>
+            </div>
+        </div>
+
+
+        <div class="slide" id="slide11">
+            <span class="slide-number">11/30</span>
+            <h2>Tipos de Dados</h2>
+            <p>JavaScript é uma linguagem de <strong>tipagem dinâmica</strong>. Isso significa que você não precisa
+                declarar o tipo de uma variável; ele é determinado automaticamente no momento da atribuição.</p>
+            <p>Os tipos são divididos em <strong>Primitivos</strong> e <strong>Compostos</strong>.</p>
+            <div class="img-container">
+                <img src="./img/types.png"
+                    alt="Diagrama de Tipos de Dados em JavaScript" style="max-width: 800px;">
+                <figcaption>Visão geral dos tipos de dados em JavaScript.</figcaption>
+            </div>
+            <div class="note">
+                <p><strong>Sugestão de leitura:</strong> <a href="https://www.geeksforgeeks.org/javascript/javascript-data-types/" target="_blank">GeeksforGeeks - JavaScript Data Types</a></p>
+            </div>
+        </div>
+
+        <div class="slide" id="slide12">
+            <span class="slide-number">12/30</span>
+            <h2>Tipos Primitivos</h2>
+            <p>Valores primitivos são imutáveis (não podem ser alterados).</p>
+            <div class="img-container">
+                <img src="./img/NaN.png"
+                    alt="As diversas formas de lidar com o nada em JS" style="max-width: 600px;">
+                <figcaption>As diversas formas de lidar com o nada em JS.</figcaption>
+            </div>
+            <ul>
+                <li><strong>Number:</strong> Para números inteiros ou de ponto flutuante. Ex: <code class="javascript">42</code>,
+                    <code class="javascript">3.14</code>. Inclui valores especiais como <code class="javascript">Infinity</code>, <code class="javascript">-Infinity</code> e
+                    <code class="javascript">NaN</code> (Not-a-Number).
+                </li>
+                <li><strong>String:</strong> Sequências de caracteres, delimitadas por aspas simples (<code class="javascript">'</code>),
+                    duplas (<code class="javascript">"</code>) ou crases (<code class="javascript">`</code> - template literals). Ex: <code class="javascript">"Olá"</code>.</li>
+                <li><strong>Boolean:</strong> Representa valores lógicos. Apenas dois valores: <code class="javascript">true</code> e
+                    <code class="javascript">false</code>.
+                </li>
+                <li><strong>Undefined:</strong> Uma variável que foi declarada mas não inicializada. Valor padrão.</li>
+                <li><strong>Null:</strong> Representa a ausência intencional de um valor de objeto.</li>
+                <li><strong>Symbol (ES6):</strong> Um tipo de dado cujas instâncias são únicas e imutáveis.</li>
+                <li><strong>BigInt (ES2020):</strong> Para números inteiros de precisão arbitrária.</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide13">
+            <span class="slide-number">13/30</span>
+            <h2>Verificação de tipos com <code class="javascript">typeof</code></h2>
+            <p>O operador <code class="javascript">typeof</code> retorna uma string indicando o tipo de um operando.</p>
+            <pre><code class="javascript">console.log(typeof 42);          // "number"
+console.log(typeof "JavaScript"); // "string"
+console.log(typeof true);        // "boolean"
+let semValor;
+console.log(typeof semValor);    // "undefined"
+console.log(typeof null);        // "object" (um bug histórico da linguagem! Só aceita!)
+console.log(typeof Symbol('id'));// "symbol"
+console.log(typeof 123n);        // "bigint"
+console.log(typeof NaN);         // "number"
+</code></pre>
+            <div class="note">
+                <p><strong>JS e suas <s>bizarrices</s> peculiaridades:</strong> <code class="javascript">NaN</code> significa "Not-a-Number", mas seu tipo é
+                    <code class="javascript">number</code>. Existe explicação para a maioria dessas peculiaridades, leia a documentação oficial para entender melhor:   <a href="https://ecma-international.org/publications-and-standards/standards/ecma-262/">https://ecma-international.org/publications-and-standards/standards/ecma-262/</a>.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="slide" id="slide14">
+            <span class="slide-number">14/30</span>
+            <h2>Tipo objeto (Object)</h2>
+            <p>O tipo <code class="javascript">Object</code> é uma coleção de propriedades, onde cada propriedade é uma associação entre
+                uma chave (ou nome) e um valor.</p>
+            <p>Quase tudo em JavaScript que não é um tipo primitivo é um objeto.</p>
+            <ul>
+                <li><strong>Objeto Literal:</strong> <code class="javascript">{ chave: 'valor' }</code></li>
+                <li><strong>Array:</strong> Um tipo especial de objeto, usado para listas ordenadas.
+                    <code class="javascript">[1, "dois", true]</code>
+                </li>
+                <li><strong>Function:</strong> Funções também são objetos em JavaScript, o que permite tratá-las como
+                    valores.</li>
+            </ul>
+            <pre><code class="javascript">let pessoa = {
+    nome: "Ana",
+    idade: 30,
+    ativa: true
+};
+
+let cores = ["vermelho", "verde", "azul"];
+
+function saudar() {
+    console.log("Olá!");
+}
+
+console.log(typeof pessoa); // "object"
+console.log(typeof cores);  // "object" (Array.isArray(cores) é true)
+console.log(typeof saudar); // "function"
+</code></pre>
+        </div>
+
+
+        <div class="slide" id="slide15">
+            <span class="slide-number">15/30</span>
+            <h2>Conversão de tipos (type coercion)</h2>
+            <p>JavaScript frequentemente converte valores de um tipo para outro automaticamente. Isso é chamado de
+                <strong>conversão implícita</strong> ou <strong>coerção</strong>.
+            </p>
+            <p>Também podemos converter tipos de forma explícita.</p>
+            <div class="img-container">
+                <img src="./img/coercion.png"
+                    alt="Exemplo de coerção de tipos em JavaScript" style="max-width: 700px;">
+                <figcaption>A coerção pode levar a resultados inesperados.</figcaption>
+            </div>
+        </div>
+
+        <div class="slide" id="slide16">
+            <span class="slide-number">16/30</span>
+            <h2>Conversão Implícita (Coerção)</h2>
+            <p>Ocorre quando operadores são aplicados a valores de tipos diferentes.</p>
+            <pre><code class="javascript">// O operador '+' com uma string força a concatenação
+console.log("5" + 1);    // "51" (número 1 vira string '1')
+console.log(1 + "5");    // "15"
+
+// Operadores matemáticos (-, *, /) tentam converter para número
+console.log("10" - 5);   // 5
+console.log("10" * 2);   // 20
+console.log("dez" * 2);  // NaN (Not-a-Number)
+
+// O operador de igualdade abstrata (==) faz coerção
+console.log(5 == "5");   // true
+console.log(0 == false); // true
+console.log(null == undefined); // true
+
+// Para evitar coerção na comparação, use igualdade estrita (===)
+console.log(5 === "5");   // false
+console.log(0 === false); // false
+</code></pre>
+        </div>
+
+
+        <div class="slide" id="slide17">
+            <span class="slide-number">17/30</span>
+            <h2>Conversão Explícita</h2>
+            <p>Quando queremos controlar a conversão, usamos funções built-in.</p>
+            <pre><code class="javascript">let valorString = "123.45";
+
+// Para Número
+let valorNumero1 = Number(valorString);      // 123.45
+let valorNumero2 = parseInt(valorString);    // 123 (ignora parte decimal)
+let valorNumero3 = parseFloat(valorString);  // 123.45
+
+console.log(typeof valorNumero1); // "number"
+
+let valorNumero = 99;
+
+// Para String
+let valorString1 = String(valorNumero);      // "99"
+let valorString2 = valorNumero.toString();   // "99"
+
+console.log(typeof valorString1); // "string"
+
+// Para Booleano
+console.log(Boolean(0));        // false
+console.log(Boolean(""));       // false
+console.log(Boolean(null));     // false
+console.log(Boolean("olá"));    // true
+console.log(Boolean(100));      // true
+</code></pre>
+        </div>
+
+
+        <div class="slide" id="slide18">
+            <span class="slide-number">18/30</span>
+            <h2>Hoisting (Içamento)</h2>
+            <p>Hoisting é um comportamento do JavaScript onde as declarações de <strong>variáveis (com
+                    <code class="javascript">var</code>)</strong> e <strong>funções</strong> são movidas para o topo de seu escopo antes da
+                execução do código.</p>
+            <div class="note">Apenas a <strong>declaração</strong> é içada, não a <strong>inicialização</strong>.</div>
+            <div class="img-container">
+                <img src="./img/hoisting.png"
+                    alt="Ilustração do Hoisting" style="max-width: 450px;">
+            </div>
+        </div>
+
+        <div class="slide" id="slide19">
+            <span class="slide-number">19/30</span>
+            <h2>Hoisting com <code class="javascript">var</code></h2>
+            <p>Com <code class="javascript">var</code>, a declaração é movida para o topo e a variável é inicializada com
+                <code class="javascript">undefined</code>.
+            </p>
+            <pre><code class="javascript">// Como escrevemos o código:
+console.log(nome); // undefined
+var nome = "Maria";
+console.log(nome); // "Maria"
+
+// Como o JavaScript interpreta (após o hoisting):
+var nome;
+console.log(nome); // undefined
+nome = "Maria";
+console.log(nome); // "Maria"
+</code></pre>
+        </div>
+
+
+        <div class="slide" id="slide20">
+            <span class="slide-number">20/30</span>
+            <h2>Hoisting com <code class="javascript">let</code> e <code class="javascript">const</code></h2>
+            <p><code class="javascript">let</code> e <code class="javascript">const</code> também são "içadas", mas elas não são inicializadas. Acessá-las
+                antes da declaração resulta em um <code class="javascript">ReferenceError</code>. A área entre o início do bloco e a
+                declaração é chamada de <strong>Temporal Dead Zone (TDZ)</strong>.</p>
+            <pre><code class="javascript">// console.log(idade); // ReferenceError: Cannot access 'idade' before initialization
+let idade = 30;
+console.log(idade); // 30
+
+// O mesmo acontece com const
+// console.log(cidade); // ReferenceError
+const cidade = "São Paulo";
+console.log(cidade);
+</code></pre>
+            <div class="note">Este comportamento nos força a declarar as variáveis antes de usá-las, o que leva a um
+                código mais limpo e menos propenso a erros.</div>
+        </div>
+
+
+        <div class="slide" id="slide21">
+            <span class="slide-number">21/30</span>
+            <h2>Interações com o Navegador</h2>
+            <p>JavaScript no navegador fornece funções para interagir com o usuário de forma simples e direta.</p>
+            <p>Vamos ver quatro interações básicas:</p>
+            <ul>
+                <li><code class="javascript">alert()</code>: Exibe uma mensagem.</li>
+                <li><code class="javascript">prompt()</code>: Pede ao usuário para inserir um texto.</li>
+                <li><code class="javascript">confirm()</code>: Pede uma confirmação (OK/Cancelar).</li>
+                <li><code class="javascript">console.log()</code>: Escreve no console do desenvolvedor.</li>
+            </ul>
+            <div class="img-container">
+                <img src="./img/window.png"
+                    alt="Exemplos de caixas de diálogo do navegador" style="max-width: 800px;">
+                <figcaption>Caixas de diálogo modais bloqueiam a interação com a página.</figcaption>
+            </div>
+        </div>
+
+        <div class="slide" id="slide22">
+            <span class="slide-number">22/30</span>
+            <h2><code class="javascript">alert()</code></h2>
+            <p>Mostra uma caixa de diálogo modal com uma mensagem e um botão OK. Pausa a execução do script até que o
+                usuário clique em OK.</p>
+            <pre><code class="javascript">alert("Bem-vindo ao nosso site!");
+
+console.log("Esta linha só executa depois que o alert é fechado.");
+</code></pre>
+            <div class="note">
+                Use com moderação. O uso excessivo de <code class="javascript">alert</code> pode ser irritante para o usuário.
+            </div>
+        </div>
+
+
+        <div class="slide" id="slide23">
+            <span class="slide-number">23/30</span>
+            <h2><code class="javascript">prompt()</code></h2>
+            <p>Exibe uma caixa de diálogo com uma mensagem, um campo de texto e botões OK/Cancelar.</p>
+            <p>Retorna o texto digitado pelo usuário ou <code class="javascript">null</code> se o usuário clicar em Cancelar ou fechar a
+                caixa.</p>
+            <pre><code class="javascript">let nome = prompt("Qual é o seu nome?", "Visitante");
+
+if (nome) { // Verifica se o usuário não clicou em Cancelar
+    alert("Olá, " + nome + "!");
+} else {
+    alert("Você não quis dizer seu nome.");
+}
+</code></pre>
+            <p>O segundo argumento da função <code class="javascript">prompt()</code> é opcional e serve como valor padrão para o campo de
+                texto.</p>
+        </div>
+
+
+        <div class="slide" id="slide24">
+            <span class="slide-number">24/30</span>
+            <h2><code class="javascript">confirm()</code></h2>
+            <p>Exibe uma caixa de diálogo com uma pergunta e botões OK/Cancelar.</p>
+            <p>Retorna <code class="javascript">true</code> se o usuário clicar em OK e <code class="javascript">false</code> caso contrário.</p>
+            <pre><code class="javascript">let querSair = confirm("Você tem certeza que deseja sair desta página?");
+if (querSair) {
+    console.log("Usuário confirmou a saída.");
+} else {
+    console.log("Usuário cancelou a ação.");
+}
+</code></pre>
+        </div>
+
+
+        <div class="slide" id="slide25">
+            <span class="slide-number">25/30</span>
+            <h2><code class="javascript">console.log()</code></h2>
+            <p>É a ferramenta mais importante para depuração (debugging). Ela exibe dados no console de ferramentas do
+                desenvolvedor do navegador (geralmente aberto com F12 ou Ctrl+Shift+I).</p>
+            <p>Diferente das outras, não interrompe a execução do código nem interfere na interface do usuário.</p>
+            <pre><code class="javascript">let a = 10;
+let b = 20;
+let soma = a + b;
+
+console.log("O valor de 'a' é:", a);
+console.log("O valor de 'b' é:", b);
+console.log("O resultado da soma é:", soma);
+
+let usuario = { nome: "Carlos", id: 123 };
+console.log("Dados do usuário:", usuario);
+</code></pre>
+        </div>
+
+
+        <div class="slide" id="slide26">
+            <span class="slide-number">26/30</span>
+            <h2>Console do navegador</h2>
+            <p>O console é uma ferramenta poderosa. Além de <code class="javascript">console.log()</code>, existem outros métodos úteis:
+            </p>
+            <ul>
+                <li><code class="javascript">console.error()</code>: Exibe uma mensagem de erro.</li>
+                <li><code class="javascript">console.warn()</code>: Exibe uma mensagem de aviso.</li>
+                <li><code class="javascript">console.table()</code>: Exibe dados tabulares (objetos, arrays) de forma organizada.</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide27">
+            <span class="slide-number">27/30</span>
+            <h2>Exemplo prático</h2>
+            <pre><code class="javascript">"use strict";
+
+alert("Olá! Vamos coletar algumas informações.");
+
+const anoNascimento = prompt("Em que ano você nasceu?");
+const anoAtual = 2025; // Podemos obter isso dinamicamente depois
+
+if (anoNascimento) {
+    // Conversão explícita de string para número
+    const idade = anoAtual - parseInt(anoNascimento);
+    console.log("Cálculo da idade:", anoAtual, "-", anoNascimento, "=", idade);
+
+
+    alert("Você tem (ou fará) " + idade + " anos em " + anoAtual + ".");
+
+    const confirmaIdade = confirm("A informação está correta?");
+
+    if (confirmaIdade) {
+        console.log("O usuário confirmou a idade de " + idade + " anos.");
+    } else {
+        console.warn("O usuário não confirmou a idade.");
+    }
+
+
+} else {
+    console.error("O usuário não informou o ano de nascimento.");
+    alert("Operação cancelada.");
+}
+
+</code></pre>
+        </div>
+
+
+        <div class="slide" id="slide28">
+            <span class="slide-number">28/30</span>
+            <h2>Revisão: valores, tipos e operadores</h2>
+            <ul>
+                <li>Tudo em JavaScript é um "valor" com um "tipo" associado.</li>
+                <li>Conhecemos 7 tipos primitivos (Number, String, Boolean, etc.) e o tipo composto Object.</li>
+                <li>JavaScript é de tipagem dinâmica.</li>
+                <li>A conversão de tipos (coerção) acontece com frequência. Use <code class="javascript">===</code> para comparações
+                    estritas e evite surpresas.</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide29">
+            <span class="slide-number">29/30</span>
+            <h2>Revisão: estrutura do programa</h2>
+            <ul>
+                <li>Um programa é uma série de declarações (statements). Use <code class="javascript">;</code>.</li>
+                <li>Sempre inicie seus scripts com <code class="javascript">"use strict";</code> para um código mais seguro.</li>
+                <li>Use <code class="javascript">let</code> e <code class="javascript">const</code> para declarar variáveis. Elas têm escopo de bloco e evitam
+                    problemas comuns do <code class="javascript">var</code>.</li>
+                <li>Hoisting é o mecanismo que move declarações para o topo, mas <code class="javascript">let</code>/<code class="javascript">const</code>
+                    introduzem a TDZ, forçando melhores práticas.</li>
+                <li><code class="javascript">console.log()</code> é seu melhor amigo para entender e depurar o código.</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide30">
+            <span class="slide-number">30/30</span>
+            <h2>Dúvidas</h2>
+            <h3>Perguntas?</h3>
+            <br>
+            <h3>Para a próxima aula:</h3>
+            <ul>
+                <li>Estruturas de Controle: <code class="javascript">if/else</code>, <code class="javascript">switch</code>, <code class="javascript">while</code>,
+                    <code class="javascript">for</code>.
+                </li>
+                <li>Funções: Declaração, Expressão, Arrow Functions.</li>
+                <li><strong>Leitura recomendada:</strong> Eloquent JavaScript, Capítulo 3: Funções.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <button id="prevBtn" class="nav-button">&lt;</button>
+    <button id="nextBtn" class="nav-button">&gt;</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Seleciona todos os elementos de slide e os botões
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Define o slide inicial como 0 (o primeiro)
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            // Função para mostrar o slide correto
+            function showSlide(index) {
+                // Primeiro, esconde todos os slides removendo a classe 'active'
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+
+                // Mostra o slide do índice 'index' adicionando a classe 'active'
+                slides[index].classList.add('active');
+
+                // Atualiza o estado dos botões
+                // Desabilita o botão 'prev' se estiver no primeiro slide
+                prevBtn.disabled = index === 0;
+                // Desabilita o botão 'next' se estiver no último slide
+                nextBtn.disabled = index === totalSlides - 1;
+            }
+
+            // Evento de clique para o botão 'Próximo'
+            nextBtn.addEventListener('click', () => {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            });
+
+            // Evento de clique para o botão 'Anterior'
+            prevBtn.addEventListener('click', () => {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            });
+
+            // Navegação com as setas do teclado (bônus!)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextBtn.click(); // Simula um clique no botão 'next'
+                } else if (e.key === 'ArrowLeft') {
+                    prevBtn.click(); // Simula um clique no botão 'prev'
+                }
+            });
+
+            // Mostra o primeiro slide quando a página carregar
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+
+</html>
